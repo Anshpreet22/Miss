@@ -98,6 +98,26 @@
     .hug-btn:hover {
       transform: scale(1.1);
     }
+
+    .gallery-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  color: #800033;
+  text-decoration: none;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.gallery-button:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
   </style>
 </head>
 <body>
@@ -106,6 +126,7 @@
   <div class="note" id="noteText"></div>
   <button class="hug-btn" onclick="alert('Sending you the warmest hug ever! 🤗💞')">Send Me a Hug 🤗</button>
   <div class="heart-bg" id="bgHearts"></div>
+  <a href="note.html" class="gallery-button" title="Memories with You 💕">Hey cutieee a note for you</a>
 
   <script>
     const text = `You have no idea how much I miss you... Every second feels longer without your smile, your laugh and your cute angry face. Just know, you're always in my heart and I can't wait to hold you close again. Love you to infinity and beyond 💖`;
@@ -138,6 +159,8 @@
     typeEffect();
     createFloatingHearts();
   </script>
+
+
 
 </body>
 </html>

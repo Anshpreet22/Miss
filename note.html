@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For You 💌</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .note {
+      background-color: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.3);
+      max-width: 600px;
+      animation: fadeIn 2s ease;
+    }
+
+    .note h1 {
+      color: #ff1493;
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .note p {
+      font-size: 1.2rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .note{
+      margin-top: 500px;
+    }
+
+    .music-control {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.4);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #800033;
+      cursor: pointer;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+    }
+
+    .music-control:hover {
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+  </style>
+</head>
+<body>
+  <button class="music-control" onclick="toggleMusic()">Play Music</button>
+  
+  <audio id="bgMusic" loop>
+    <source src="Duniya Kisi Ke Pyar Mein Janat Se (Live In India1983) - (Raag.Fm).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <div class="space"></div>
+  <div class="note">
+    <h1>Hi My Love 💖</h1>
+    <p>
+      I know this is just a small web page...<br/>
+      but it holds the biggest message my heart can whisper:<br/><br/>
+      <strong>I miss you deeply, constantly, endlessly.</strong><br/>
+      Every heartbeat feels like it's saying your name.<br/><br/>
+      If you say yes <br>
+      My heart will race, not with fear, but with pure, overwhelming joy...
+The world will suddenly make more sense.....like everything I’ve been through led me to you.
+I'll be the luckiest man alive... because the girl I dreamed of, the one who unknowingly owned my heart, chose to hold it with love.
+
+You’re not just beautiful... you’re breathtaking in every way..... ✨✨✨✨
+The way you smile... it’s like sunshine sneaking through the clouds on a heavy day.....🥰🥰🥰
+The way you care, the way you see the world, your kindness, your strength... it all leaves me in awe.....
+You are a rare kind of magic... the kind that doesn’t just light up a room but you light up lives.....🥺
+You make love feel like home... like something sacred, soft, and safe.
+
+Every little worry will fade... because now I know… I’m not walking this path alone....
+With your 'yes', life won’t just be about me anymore... it becomes ours. Our laughter, our tears, our dreams... our forever.
+And in that moment, I’ll promise myself to never take you for granted… not even for a second....🎀🎀🎀🎀
+Because your love will be the greatest gift I’ll ever receive...✨✨✨✨🎀🎀🎀🎀🎀✨✨✨✨🎀🎀🎀🎀✨✨✨✨✨✨
+<br><br>
+      Doll what I feel is 
+      whatever you decision would be I will respect that completely.....
+      Jisme bhi tum khush rho.....
+      <br/><br/><br/>
+      — Yours always ❤️
+    </p>
+  </div>
+
+  <script>
+    const bgMusic = document.getElementById("bgMusic");
+    const musicBtn = document.querySelector(".music-control");
+  
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play();
+        musicBtn.textContent = "Pause Music";
+      } else {
+        bgMusic.pause();
+        musicBtn.textContent = "Play Music";
+      }
+    }
+  </script>
+</body>
+</html>
