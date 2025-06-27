@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff0f5;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #ff1493;
+      margin-bottom: 1rem;
+    }
+
+    .note {
+      font-size: 1.5rem;
+      width: 80%;
+      max-width: 700px;
+      color: #c71585;
+      line-height: 1.8;
+      min-height: 150px;
+    }
+
+    .heart-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .hug-btn {
+      margin-top: 2rem;
+      background: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .hug-btn:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hey Anushka ❤️</h1>
+  <div class="note" id="noteText"></div>
+  <button class="hug-btn" onclick="alert('Sending you the warmest hug ever! 🤗💞')">Send Me a Hug 🤗</button>
+  <div class="heart-bg" id="bgHearts"></div>
+
+  <script>
+    const text = `You have no idea how much I miss you... Every second feels longer without your smile, your laugh and your cute angry face. Just know, you're always in my heart and I can't wait to hold you close again. Love you to infinity and beyond 💖`;
+    const note = document.getElementById('noteText');
+    let i = 0;
+
+    function typeEffect() {
+      if (i < text.length) {
+        note.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 50);
+      }
+    }
+
+    function createFloatingHearts() {
+      const container = document.getElementById('bgHearts');
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+        container.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+      }, 300);
+    }
+
+    typeEffect();
+    createFloatingHearts();
+  </script>
+
+</body>
+</html>

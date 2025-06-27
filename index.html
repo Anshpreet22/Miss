@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Miss You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: pink;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3rem;
+      color: #d6006b;
+      text-shadow: 2px 2px #fff;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 10s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -15px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .buttons {
+      margin-top: 2rem;
+    }
+
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #noBtn {
+      background: #ff6f91;
+      color: white;
+    }
+
+    #yesBtn {
+      background: #ff165d;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Do you miss me? 💖</h1>
+
+  <div class="buttons">
+    <button id="noBtn">I don't 😒</button>
+    <button id="yesBtn">I miss you sooo much 😭❤️</button>
+  </div>
+
+  <div class="hearts" id="heartsContainer"></div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    let noBtnSize = 1;
+    let yesBtnSize = 1;
+
+    noBtn.addEventListener('click', () => {
+      noBtnSize -= 0.05;
+      if (noBtnSize < 0.2) noBtnSize = 0.2;
+      noBtn.style.transform = `scale(${noBtnSize})`;
+
+      yesBtnSize += 0.05;
+      yesBtn.style.transform = `scale(${yesBtnSize})`;
+    });
+
+    yesBtn.addEventListener('click', () => {
+      window.location.href = 'iloveyou.html';
+    });
+
+    function createHearts() {
+      const heartsContainer = document.getElementById('heartsContainer');
+      setInterval(() => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+        heartsContainer.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+      }, 300);
+    }
+
+    createHearts();
+  </script>
+</body>
+</html>
